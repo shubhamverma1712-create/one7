@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ONE7 Personal Training Studio, Jaipur | ₹999 trial</title>
+<meta name="description" content="1-on-1 personal training in Jaipur with a coach, a plan and daily accountability. Book your ₹999 trial session.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Luxury palette: British racing green, deep emerald, antique gold, ivory */
+  --bg:#F3EFE4; --surface:#FAF7EF; --ink:#0D2A1E; --muted:#4F5E55; --line:#D8D0BD;
+  --green:#0B4D33; --moss:#0B4D33; --on-green:#F1E6C8; --gold:#C9A45C; --deep:#0D2A1E; --cream:#F3EFE4; --dline:#24503D; --dcard:#123828; --dmuted:#CFC6AE;
+  --shadow:rgba(13,42,30,.16); --red:#A8321C;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Instrument Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#08140F;--surface:#0F2019;--ink:#EEE6D2;--muted:#A9B3A6;--line:#22392E;--green:#14704A;--moss:#D4B26A;--deep:#0F2E21;--shadow:rgba(0,0,0,.5);--red:#FF8A73}
+}
+:root[data-theme="dark"]{--bg:#08140F;--surface:#0F2019;--ink:#EEE6D2;--muted:#A9B3A6;--line:#22392E;--green:#14704A;--moss:#D4B26A;--deep:#0F2E21;--shadow:rgba(0,0,0,.5);--red:#FF8A73}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(80px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.display{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.88;margin:0}
+section{padding:96px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(50px,7.5vw,104px)}
+.sec-head p{max-width:440px;color:var(--muted);margin:0}
+.hl{background:linear-gradient(transparent 60%,rgba(201,164,92,.45) 60%);padding:0 2px}
+
+/* progress, cursor */
+.progress{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+.cursor{position:fixed;top:0;left:0;width:36px;height:36px;border:2px solid var(--gold);border-radius:50%;pointer-events:none;z-index:90;transition:width .25s,height .25s,background .25s,margin .25s;display:none;mix-blend-mode:difference}
+.cursor.big{width:72px;height:72px;margin:-18px 0 0 -18px;background:rgba(201,164,92,.25)}
+@media (pointer:fine){.cursor{display:block}}
+
+/* header */
+header{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--display);font-weight:900;font-size:34px;text-decoration:none;display:flex;align-items:center;gap:2px}
+.logo span{display:inline-block;background:var(--green);color:var(--gold);padding:0 6px;border-radius:6px;animation:logoPulse 2.4s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{transform:rotate(0)}10%{transform:rotate(-8deg) scale(1.08)}20%{transform:rotate(6deg)}30%{transform:rotate(0)}}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{text-decoration:none;font-weight:500;position:relative}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .35s}
+.nav-links a:not(.btn):hover::after{transform:scaleX(1);transform-origin:left}
+@media (max-width:820px){.nav-links a:not(.btn){display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;border:0;background:var(--green);color:var(--on-green);font-weight:700;text-decoration:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s;text-align:center}
+.btn::before{content:"";position:absolute;inset:0;background:var(--deep);transform:translateY(101%);transition:transform .35s cubic-bezier(.7,0,.2,1);border-radius:inherit}
+.btn:hover::before{transform:translateY(0)}
+.btn span{position:relative;z-index:1;transition:color .35s}
+.btn:hover span{color:var(--gold)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.ghost::before{background:var(--green)}
+.btn.ghost:hover span{color:var(--on-green)}
+.btn.xl{min-height:60px;font-size:18px;padding:0 34px}
+.btn.pulse{animation:btnPulse 2.2s ease-in-out infinite}
+@keyframes btnPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,164,92,.6)}60%{box-shadow:0 0 0 16px rgba(201,164,92,0)}}
+.fine{font-size:14px;color:var(--muted);margin-top:10px}
+
+/* hero */
+.hero{padding:36px 0 30px;overflow:hidden}
+.kicker{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 8px;font-weight:600;font-size:15px;opacity:0;animation:fadeIn .7s .1s forwards}
+.kicker i{width:26px;height:26px;border-radius:50%;background:var(--green);display:grid;place-items:center;font-style:normal;font-size:13px;color:var(--on-green)}
+.hero h1{font-size:clamp(64px,13.5vw,190px);margin-top:18px}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .word{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .line:nth-child(2) .word{animation-delay:.15s;color:var(--moss)}
+@keyframes rise{to{transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero-meta{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;margin-top:22px}
+.hero-meta .lede{max-width:560px;margin:0 0 22px;font-size:20px;opacity:0;animation:fadeIn .8s .6s forwards}
+.hero-meta .lede b{font-weight:600}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeIn .8s .75s forwards}
+.proofline{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:15px;color:var(--muted);opacity:0;animation:fadeIn .8s .9s forwards}
+.proofline b{color:var(--ink)}
+.proofline .st{color:var(--gold);letter-spacing:2px}
+.badge{width:170px;height:170px;position:relative;flex-shrink:0;opacity:0;animation:pop .8s 1s cubic-bezier(.3,1.6,.5,1) forwards}
+@keyframes pop{from{opacity:0;transform:scale(.3) rotate(-90deg)}to{opacity:1;transform:none}}
+.badge svg{width:100%;height:100%;animation:spin 14s linear infinite}
+.badge text{font-weight:700;font-size:13.5px;letter-spacing:.12em;fill:var(--ink)}
+.badge-core{position:absolute;inset:34px;border-radius:50%;background:var(--green);color:var(--on-green);box-shadow:inset 0 0 0 2px var(--gold);display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:900;font-size:38px;line-height:.9}
+.badge-core small{display:block;font-family:var(--body);font-size:12px;font-weight:600;margin-top:4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:640px){.hero-meta{grid-template-columns:1fr}.badge{width:120px;height:120px;position:absolute;right:16px;top:90px}.badge-core{inset:24px;font-size:28px}.hero{position:relative}}
+.ecg{display:block;width:100%;height:100px;margin-top:20px}
+.ecg path{fill:none;stroke:var(--green);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1400;stroke-dashoffset:1400;animation:beat 3.2s linear infinite}
+.ecg .ghost-line{stroke:var(--line);stroke-width:2;animation:none;stroke-dasharray:none;stroke-dashoffset:0}
+@keyframes beat{0%{stroke-dashoffset:1400}70%{stroke-dashoffset:0}100%{stroke-dashoffset:-1400}}
+
+/* results strip */
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.res{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;position:relative;overflow:hidden}
+.res b{font-family:var(--display);font-weight:900;font-size:48px;line-height:.95;text-transform:uppercase;display:block;color:var(--moss)}
+.res p{margin:10px 0 6px;font-size:15px}
+.res span{font-size:14px;font-weight:600}
+.res::after{content:"";position:absolute;left:0;top:0;height:100%;width:5px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .8s .3s}
+.res.in::after{transform:scaleY(1)}
+@media (max-width:760px){.results{grid-template-columns:1fr}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.wipe{clip-path:inset(0 100% 0 0);transition:clip-path 1.1s cubic-bezier(.7,0,.2,1)}
+.wipe.in{clip-path:inset(0 0 0 0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* quiz */
+.quiz{background:var(--deep);color:var(--cream);border-radius:32px;padding:clamp(28px,5vw,60px);position:relative;overflow:hidden}
+.quiz h2{font-size:clamp(46px,6.5vw,88px)}
+.quiz h2 em{font-style:normal;color:var(--gold)}
+.quiz .qsub{color:var(--dmuted);margin:12px 0 30px;max-width:520px}
+.qbar{height:6px;border-radius:6px;background:var(--dline);margin-bottom:28px;overflow:hidden}
+.qbar i{display:block;height:100%;width:0;background:var(--gold);transition:width .5s cubic-bezier(.3,1.3,.5,1)}
+.qstep{display:none}
+.qstep.on{display:block;animation:qin .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes qin{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:none}}
+.qstep h3{font-size:clamp(22px,2.6vw,30px);margin:0 0 18px;font-weight:600}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.opt{min-height:64px;border-radius:16px;border:2px solid var(--dline);background:var(--dcard);color:var(--cream);padding:14px 18px;text-align:left;font-weight:600;cursor:pointer;transition:border-color .25s,transform .25s,background .25s}
+.opt:hover{border-color:var(--gold);transform:translateY(-3px)}
+.opt.picked{background:var(--gold);color:var(--deep);border-color:var(--gold)}
+.qresult{background:linear-gradient(135deg,#0B4D33,#0A3D29);color:var(--on-green);border:1px solid var(--gold);border-radius:22px;padding:28px}
+.qresult .rp{font-family:var(--display);font-weight:900;font-size:clamp(44px,6vw,72px);line-height:.9;text-transform:uppercase}
+.qresult p{margin:12px 0 20px;max-width:640px;font-size:18px}
+.qresult .btn{background:var(--gold);color:var(--deep)}
+.qresult .btn::before{background:var(--cream)}
+.qresult .btn:hover span{color:var(--deep)}
+.qresult .again{background:none;border:0;text-decoration:underline;cursor:pointer;margin-left:12px;min-height:44px;font-weight:600;color:var(--on-green)}
+
+/* pain vs fix flip cards */
+.flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.flip{perspective:1000px;height:260px;border:0;background:none;padding:0;cursor:pointer;text-align:left}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .8s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}
+.flip:hover .flip-in,.flip.on .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:22px;padding:26px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.face.front{background:var(--surface);border:1px solid var(--line)}
+.face.back{background:var(--green);color:var(--on-green);box-shadow:inset 0 0 0 1px var(--gold);transform:rotateY(180deg)}
+.face small{font-weight:600;font-size:14px}
+.face.front small{color:var(--red)}
+.face h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:34px;line-height:.95}
+.face p{margin:0;font-size:15px}
+.face .hint{font-size:13px;color:var(--muted)}
+
+/* marquee */
+.marquee-zone{padding:60px 0;overflow:hidden}
+.marquee{display:flex;width:max-content;padding:18px 0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(32px,5vw,58px);white-space:nowrap}
+.marquee.a{background:var(--green);color:var(--on-green);transform:rotate(-2.5deg) scale(1.04);animation:slide 28s linear infinite}
+.marquee.b{background:var(--gold);color:var(--deep);transform:rotate(1.8deg) scale(1.04);margin-top:-12px;animation:slide 34s linear infinite reverse}
+.marquee span{padding:0 28px;display:inline-flex;align-items:center;gap:28px}
+.marquee span::after{content:"";width:18px;height:18px;border-radius:50%;background:currentColor;opacity:.5}
+@keyframes slide{from{translate:0 0}to{translate:-50% 0}}
+
+/* horizontal steps */
+.hscroll{height:420vh;position:relative;padding:0}
+.hscroll .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;background:var(--deep);color:var(--cream)}
+.hscroll .top{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:36px;flex-wrap:wrap}
+.hscroll h2{font-size:clamp(44px,6.5vw,92px)}
+.hscroll h2 em{font-style:normal;color:var(--gold)}
+.price-tag{font-family:var(--display);font-weight:900;font-size:clamp(60px,9vw,120px);color:var(--gold);line-height:.9;text-align:right}
+.price-tag small{display:block;font-family:var(--body);font-size:14px;font-weight:500;color:var(--dmuted)}
+.track{display:flex;gap:24px;padding-left:max(20px,calc((100vw - 1200px)/2));will-change:transform}
+.step{flex:0 0 min(440px,80vw);height:min(360px,48vh);border-radius:24px;padding:32px;background:var(--dcard);border:1px solid var(--dline);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.step .n{font-family:var(--display);font-weight:900;font-size:90px;line-height:.8;color:var(--gold)}
+.step h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:40px;margin:0 0 8px;line-height:.95}
+.step p{margin:0;color:var(--dmuted)}
+.step::after{content:"";position:absolute;left:0;bottom:0;height:5px;width:100%;background:var(--gold);transform:scaleX(var(--p,0));transform-origin:left}
+.step.final{background:var(--gold);color:var(--deep);border-color:var(--gold)}
+.step.final p,.step.final .n{color:var(--deep)}
+.hbar{margin-top:32px;height:3px;background:var(--dline);border-radius:3px;overflow:hidden}
+.hbar i{display:block;height:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+
+/* timeline calculator */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:clamp(26px,4vw,52px)}
+.calc h2{font-size:clamp(44px,6vw,80px)}
+.calc label{font-weight:600;display:block;margin:26px 0 10px}
+.calc input[type=range]{width:100%;accent-color:var(--green);height:32px}
+.kg{font-family:var(--display);font-weight:900;font-size:64px;line-height:1}
+.dates{display:grid;gap:14px}
+.date{border-radius:20px;padding:22px;border:2px solid var(--line);transition:transform .4s}
+.date.now{background:var(--green);color:var(--on-green);border-color:var(--gold)}
+.date small{font-weight:600}
+.date b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(34px,4vw,48px);text-transform:uppercase;line-height:1;margin-top:6px}
+.date.later{color:var(--muted)}
+.date.later b{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:3px}
+.bump{animation:bump .4s}
+@keyframes bump{50%{transform:scale(1.04)}}
+@media (max-width:820px){.calc{grid-template-columns:1fr}}
+
+/* plans */
+.toggle{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px;position:relative;margin-bottom:36px}
+.toggle button{border:0;background:none;min-height:44px;padding:0 24px;border-radius:999px;font-weight:600;cursor:pointer;position:relative;z-index:1;transition:color .3s}
+.toggle button[aria-pressed="true"]{color:var(--on-green)}
+.toggle .knob{position:absolute;top:5px;bottom:5px;left:5px;border-radius:999px;background:var(--green);transition:transform .45s cubic-bezier(.3,1.4,.5,1),width .45s}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;perspective:1200px;align-items:stretch}
+.plans[hidden]{display:none}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:14px;transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .3s;animation:flipIn .7s cubic-bezier(.2,.8,.2,1) backwards}
+.plans .plan:nth-child(2){animation-delay:.08s}.plans .plan:nth-child(3){animation-delay:.16s}.plans .plan:nth-child(4){animation-delay:.24s}
+@keyframes flipIn{from{opacity:0;transform:rotateY(-35deg) translateY(30px)}to{opacity:1;transform:none}}
+.plan:hover{box-shadow:0 24px 50px var(--shadow)}
+.plan h3{margin:0;font-size:18px;font-weight:600}
+.plan .amt{font-family:var(--display);font-weight:900;font-size:60px;line-height:.9}
+.plan .amt small{font-family:var(--body);font-size:14px;font-weight:500;color:var(--muted)}
+.plan .strike{text-decoration:line-through;color:var(--muted);font-family:var(--body);font-size:18px;font-weight:500;margin-left:6px}
+.plan .per{font-size:15px;font-weight:600;color:var(--moss)}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"✓";flex:0 0 20px;height:20px;border-radius:50%;background:var(--green);color:var(--on-green);font-size:12px;font-weight:700;display:grid;place-items:center;margin-top:2px}
+.plan .btn{margin-top:auto}
+.plan.star{background:var(--deep);color:var(--cream);border:0;position:relative;isolation:isolate}
+.plan.star::before{content:"";position:absolute;inset:-3px;border-radius:25px;background:conic-gradient(from var(--ang),var(--gold),#F5E3B3 10%,transparent 30%,transparent 60%,var(--gold));z-index:-1;animation:orbit 4s linear infinite}
+.plan.star::after{content:"";position:absolute;inset:0;border-radius:22px;background:var(--deep);z-index:-1}
+.plan.star .per{color:var(--gold)}
+.plan.star li::before{background:var(--gold);color:var(--deep)}
+.plan.star .btn{background:var(--gold);color:var(--deep)}
+.plan.star .btn::before{background:var(--cream)}
+.plan.star .btn:hover span{color:var(--deep)}
+.plan.star .save{color:var(--cream)}
+@property --ang{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes orbit{to{--ang:360deg}}
+.plan.star .amt small,.plan.star .strike{color:var(--dmuted)}
+.flag{align-self:flex-start;background:var(--gold);color:var(--deep);font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px)}}
+.save{background:rgba(201,164,92,.16);border:1px dashed var(--gold);border-radius:12px;padding:10px 12px;font-size:14px;font-weight:600}
+@media (min-width:1000px){.plans#studio{grid-template-columns:1fr 1.2fr 1fr 1fr}.plan.star{transform:translateY(-14px)}}
+
+/* guarantee */
+.guarantee{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;border:2px solid var(--gold);border-radius:32px;background:var(--surface);padding:clamp(26px,4vw,52px);position:relative;overflow:hidden}
+.shield{width:clamp(130px,18vw,200px);animation:float 3.5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px) rotate(3deg)}}
+.shield path.s{fill:var(--green)}
+.shield path.c{fill:none;stroke:var(--gold);stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:90;stroke-dashoffset:90}
+.guarantee.in .shield path.c{animation:draw .8s .5s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.guarantee h2{font-size:clamp(40px,5.5vw,76px)}
+.guarantee ul{margin:18px 0 0;padding-left:20px;display:grid;gap:8px}
+@media (max-width:760px){.guarantee{grid-template-columns:1fr}}
+
+/* testimonials */
+.quotes{position:relative;min-height:340px}
+.quote{position:absolute;inset:0;margin:0;opacity:0;transform:translateX(60px);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.quote.on{opacity:1;transform:none;pointer-events:auto}
+.quote.out{opacity:0;transform:translateX(-60px)}
+.quote .big{font-family:var(--display);font-weight:900;font-size:clamp(46px,7vw,92px);text-transform:uppercase;line-height:.9;color:var(--moss);margin:0 0 20px}
+.quote blockquote{margin:0 0 20px;font-size:clamp(19px,2.2vw,25px);max-width:820px;line-height:1.45}
+.quote cite{font-style:normal;font-weight:600}
+.quote cite span{display:block;font-weight:400;color:var(--muted);font-size:15px}
+.stars{color:var(--gold);letter-spacing:3px;font-size:20px;margin-bottom:8px}
+.dots{display:flex;gap:10px;margin-top:20px}
+.dots button{width:64px;height:44px;border:0;background:none;cursor:pointer;padding:0;display:flex;align-items:center}
+.dots button i{display:block;width:100%;height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+.dots button i::after{content:"";display:block;height:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
+.dots button.on i::after{animation:fill 6s linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+@media (max-width:640px){.quotes{min-height:470px}}
+
+/* coach */
+.coach{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+.monogram{width:clamp(200px,28vw,340px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 25%,#14704A,#0B4D33 55%,#083826);box-shadow:inset 0 0 0 3px var(--gold);display:grid;place-items:center;position:relative}
+.monogram span{font-family:var(--display);font-weight:900;font-size:clamp(140px,20vw,240px);color:var(--gold);line-height:1}
+.monogram svg{position:absolute;inset:-18px;width:calc(100% + 36px);height:calc(100% + 36px);animation:spin 20s linear infinite reverse}
+.monogram text{font-weight:700;font-size:12px;letter-spacing:.2em;fill:var(--ink)}
+.coach h2{font-size:clamp(52px,7vw,96px)}
+.coach .role{color:var(--moss);font-weight:600;margin:6px 0 18px}
+.coach p{color:var(--muted);max-width:560px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+.tags span{border:1.5px solid var(--ink);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:500;transition:background .3s,color .3s,transform .3s}
+.tags span:hover{background:var(--green);border-color:var(--green);color:var(--on-green);transform:translateY(-3px) rotate(-2deg)}
+@media (max-width:760px){.coach{grid-template-columns:1fr;justify-items:start}}
+
+/* extras: run + wedding */
+.duo{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.run{background:linear-gradient(160deg,#0B4D33,#083826);color:var(--on-green);border-radius:28px;padding:40px;position:relative;overflow:hidden;min-height:360px}
+.run h3,.wedcard h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(40px,5vw,68px);line-height:.9;margin:0 0 14px;position:relative;z-index:1}
+.run p,.wedcard p{position:relative;z-index:1;max-width:460px}
+.lanes{position:absolute;inset:auto 0 0 0;height:50%;display:flex;flex-direction:column;justify-content:space-evenly;opacity:.3}
+.lane{height:3px;background:repeating-linear-gradient(90deg,var(--on-green) 0 40px,transparent 40px 80px);background-size:80px 3px;animation:lane 1.1s linear infinite}
+.lane:nth-child(2){animation-duration:.8s}.lane:nth-child(3){animation-duration:1.4s}
+@keyframes lane{to{background-position:-80px 0}}
+.runner{position:absolute;right:6%;top:30px;width:90px;height:90px;animation:stride .5s ease-in-out infinite alternate}
+@keyframes stride{to{transform:translateY(-10px)}}
+.run .btn{background:var(--gold);color:var(--deep);position:relative;z-index:1}
+.run .btn::before{background:var(--cream)}.run .btn:hover span{color:var(--deep)}
+.wedcard{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:40px;position:relative;overflow:hidden}
+.wedcard svg{position:absolute;right:-30px;top:-20px;width:190px;opacity:.9}
+.wedcard .r1{fill:none;stroke:var(--ink);stroke-width:14;transform-origin:80px 100px;animation:sway 5s ease-in-out infinite}
+.wedcard .r2{fill:none;stroke:var(--gold);stroke-width:14;transform-origin:130px 100px;animation:sway 5s ease-in-out infinite reverse}
+@keyframes sway{50%{transform:rotate(12deg) translateY(-6px)}}
+@media (max-width:860px){.duo{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;gap:12px;max-width:900px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:0 24px;transition:background .3s}
+.faq details[open]{background:var(--green);color:var(--on-green);border-color:var(--green)}
+.faq summary{list-style:none;cursor:pointer;min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:600;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:28px;font-weight:400;transition:transform .35s;flex-shrink:0}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 22px;animation:fadeIn .4s}
+
+/* info */
+.info{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);border-radius:22px;overflow:hidden}
+.info div{padding:26px;border-right:1px solid var(--line);transition:background .35s}
+.info div:last-child{border-right:0}
+.info div:hover{background:var(--green);color:var(--on-green)}
+.info h3{margin:0 0 6px;font-size:15px;font-weight:500;color:var(--muted)}
+.info div:hover h3{color:var(--on-green)}
+.info b{font-family:var(--display);font-weight:900;font-size:34px;text-transform:uppercase;display:block;line-height:1}
+.info p{margin:8px 0 0;font-size:15px}
+@media (max-width:860px){.info{grid-template-columns:1fr 1fr}.info div:nth-child(2){border-right:0}.info div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:480px){.info{grid-template-columns:1fr}.info div{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* finale */
+.finale{text-align:center;padding:110px 0 120px}
+.fill-text{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(70px,15vw,220px);line-height:.85;margin:0;color:transparent;-webkit-text-stroke:2px var(--ink);background:linear-gradient(90deg,var(--green) 0 50%,transparent 50%) no-repeat;background-size:200% 100%;background-position:calc(100% - var(--f,0%)) 0;-webkit-background-clip:text;background-clip:text}
+.finale .lede{font-size:20px;margin:24px auto 30px;max-width:560px}
+.finale .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:30px 0 110px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* sticky mobile bar + whatsapp */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--deep);color:var(--cream);border-top:1px solid var(--gold);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .5s cubic-bezier(.3,1.3,.5,1)}
+.mbar.show{transform:none}
+.mbar b{font-family:var(--display);font-size:26px;line-height:1}
+.mbar small{display:block;font-size:12px;color:var(--dmuted)}
+.mbar .btn{background:var(--gold);color:var(--deep)}
+@media (min-width:821px){.mbar{display:none}}
+.wa{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:var(--green);display:grid;place-items:center;z-index:56;box-shadow:0 10px 30px var(--shadow);transform:scale(0);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.wa.show{transform:scale(1)}
+.wa::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--gold);animation:ping 2s ease-out infinite}
+@keyframes ping{to{transform:scale(1.7);opacity:0}}
+.wa svg{width:30px;height:30px;fill:var(--on-green)}
+@media (max-width:820px){.wa{bottom:calc(92px + env(safe-area-inset-bottom,0px))}}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:20px;visibility:hidden}
+.modal.open{visibility:visible}
+.modal .scrim{position:absolute;inset:0;background:rgba(10,16,12,.6);opacity:0;transition:opacity .4s;backdrop-filter:blur(4px)}
+.modal.open .scrim{opacity:1}
+.sheet{position:relative;background:var(--surface);border-radius:26px;padding:34px;width:min(460px,100%);max-height:90vh;overflow:auto;transform:translateY(40px) scale(.9);opacity:0;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .3s;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.modal.open .sheet{transform:none;opacity:1}
+.sheet h2{font-size:48px}
+.sheet .sub{color:var(--muted);margin:10px 0 18px}
+.sheet .perks{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:6px;font-size:15px}
+.sheet .perks li::before{content:"✓ ";color:var(--moss);font-weight:700}
+.x{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:transparent;cursor:pointer;font-size:22px;transition:transform .3s,background .3s}
+.x:hover{transform:rotate(90deg);background:var(--line)}
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.field input{width:100%;min-height:50px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);padding:0 16px;font:inherit;transition:border-color .3s}
+.field input:focus{border-color:var(--green);outline:none}
+.field .err{color:var(--red);font-size:13px;margin-top:6px;min-height:18px}
+.field.bad input{border-color:var(--red);animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.sheet .btn{width:100%}
+.done{text-align:center;padding:20px 0}
+.done svg{width:90px;height:90px}
+.done path{stroke:var(--gold);stroke-width:6;fill:none;stroke-linecap:round;stroke-dasharray:80;stroke-dashoffset:80;animation:draw .6s .2s forwards}
+.done circle{stroke:var(--green);stroke-width:5;fill:none;stroke-dasharray:260;stroke-dashoffset:260;animation:draw .7s forwards}
+.seats{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px}
+.seats::before{content:"";width:10px;height:10px;border-radius:50%;background:#E4572E;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.2}}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hero h1 .word{transform:none}.reveal{opacity:1;transform:none}.wipe{clip-path:none}
+  .hscroll{height:auto}.hscroll .sticky{position:relative;height:auto;padding:80px 0}
+  .track{flex-wrap:wrap;transform:none!important;padding:0 20px}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="ONE7 home">ONE<span>7</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#quiz">Find my plan</a>
+      <a href="#plans">Pricing</a>
+      <a href="#results">Results</a>
+      <a href="#faq">FAQ</a>
+      <a href="#" class="btn open-modal"><span>Book ₹999 trial</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO: pain first, then promise -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="kicker"><i>✓</i>Jaipur's 1-on-1 personal training studio</span>
+      <h1 class="display">
+        <span class="line"><span class="word">Stop starting</span></span>
+        <span class="line"><span class="word">over.</span></span>
+      </h1>
+      <svg class="ecg" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+        <path class="ghost-line" d="M0 55 H1200"/>
+        <path d="M0 55 H360 L390 55 L410 18 L430 92 L450 5 L470 84 L490 55 H700 L720 55 L735 36 L750 70 L765 55 H1200"/>
+      </svg>
+      <div class="hero-meta">
+        <div>
+          <p class="lede">A new plan every Monday, the same result every month? The problem isn't you. <b>It's the system.</b> At ONE7 you get one coach, one plan made only for your body, and someone who checks in so you don't quit.</p>
+          <div class="hero-actions">
+            <a href="#" class="btn xl pulse open-modal"><span>Book my ₹999 trial</span></a>
+            <a href="#quiz" class="btn xl ghost"><span>Find my plan in 30 sec</span></a>
+          </div>
+          <div class="proofline">
+            <span><span class="st">★★★★★</span> <b>100+</b> clients trained</span>
+            <span><b>10+ years</b> coaching</span>
+            <span><b>No lock-in</b> on the trial</span>
+          </div>
+        </div>
+        <div class="badge" aria-label="First session ₹999, limited seats">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="circ" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs>
+            <text><textPath href="#circ">FIRST SESSION • LIMITED SEATS • FIRST SESSION • LIMITED SEATS • </textPath></text>
+          </svg>
+          <div class="badge-core"><div>₹999<small>trial</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF right away -->
+  <div class="wrap" id="results">
+    <div class="results">
+      <div class="res reveal"><b>−28 kg</b><p>in 6 months, complete body transformation</p><span>Aditya Bhatnagar</span></div>
+      <div class="res reveal d1"><b>Sugar in control</b><p>with structured training and a diet plan</p><span>Tarun</span></div>
+      <div class="res reveal d2"><b>Confidence back</b><p>visible fat loss within months, post-pregnancy</p><span>Versha</span></div>
+    </div>
+  </div>
+
+  <!-- QUIZ: commitment + personalisation -->
+  <section id="quiz">
+    <div class="wrap">
+      <div class="quiz reveal">
+        <h2 class="display">Find your plan<br><em>in 30 seconds</em></h2>
+        <p class="qsub">Three quick questions. Based on your answers, we'll show you the plan that fits you best.</p>
+        <div class="qbar"><i id="qbar"></i></div>
+
+        <div class="qstep on" data-q="goal">
+          <h3>1. What is your main goal?</h3>
+          <div class="opts">
+            <button class="opt" type="button" data-v="loss">Weight / fat loss</button>
+            <button class="opt" type="button" data-v="trans">Body transformation</button>
+            <button class="opt" type="button" data-v="sport">Sports or marathon</button>
+            <button class="opt" type="button" data-v="wed">Getting ready for my wedding</button>
+            <button class="opt" type="button" data-v="health">Health (sugar, BP, energy)</button>
+          </div>
+        </div>
+        <div class="qstep" data-q="time">
+          <h3>2. When do you want to see results?</h3>
+          <div class="opts">
+            <button class="opt" type="button" data-v="1">Within 1 month</button>
+            <button class="opt" type="button" data-v="3">In 2 to 3 months</button>
+            <button class="opt" type="button" data-v="6">In 6 months, and for good</button>
+          </div>
+        </div>
+        <div class="qstep" data-q="past">
+          <h3>3. What have you tried before?</h3>
+          <div class="opts">
+            <button class="opt" type="button" data-v="gym">Joined a gym, then quit</button>
+            <button class="opt" type="button" data-v="diet">Diet apps or online plans</button>
+            <button class="opt" type="button" data-v="none">Nothing yet, this is my first time</button>
+          </div>
+        </div>
+        <div class="qstep" data-q="result">
+          <div class="qresult">
+            <small>Your best fit</small>
+            <div class="rp" id="rPlan">6-month plan</div>
+            <p id="rWhy"></p>
+            <a href="#" class="btn xl" id="rCta" target="_blank" rel="noopener"><span>Send my answers on WhatsApp</span></a>
+            <button class="again" type="button" id="again">Retake</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY YOU QUIT: problem → fix -->
+  <section style="padding-top:10px">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display wipe">Why you quit<br>last time</h2>
+        <p class="reveal d1">It was never about willpower. These four things break almost every fitness plan. Tap a card to see how we fix each one.</p>
+      </div>
+      <div class="flips">
+        <button class="flip reveal" type="button"><div class="flip-in">
+          <div class="face front"><small>The problem</small><h3>No plan</h3><p>Random workouts from reels and a different routine every week.</p><span class="hint">Tap to see the fix</span></div>
+          <div class="face back"><small>At ONE7</small><h3>A plan for your body</h3><p>Goal assessment and body analysis first, then a program built only for you.</p></div>
+        </div></button>
+        <button class="flip reveal d1" type="button"><div class="flip-in">
+          <div class="face front"><small>The problem</small><h3>Nobody checks</h3><p>Miss two days, nobody notices. Miss two weeks, you've quit.</p><span class="hint">Tap to see the fix</span></div>
+          <div class="face back"><small>At ONE7</small><h3>Someone notices</h3><p>Progress tracking, priority WhatsApp support, and daily check-ins on the 6-month plan.</p></div>
+        </div></button>
+        <button class="flip reveal d2" type="button"><div class="flip-in">
+          <div class="face front"><small>The problem</small><h3>Wrong diet</h3><p>Crash diets that work for 2 weeks, then everything comes back.</p><span class="hint">Tap to see the fix</span></div>
+          <div class="face back"><small>At ONE7</small><h3>Food you can keep eating</h3><p>A full diet plan with veg and non-veg options, revised as you progress.</p></div>
+        </div></button>
+        <button class="flip reveal d3" type="button"><div class="flip-in">
+          <div class="face front"><small>The problem</small><h3>Crowded gym</h3><p>Waiting for machines, nobody correcting your form, feeling judged.</p><span class="hint">Tap to see the fix</span></div>
+          <div class="face back"><small>At ONE7</small><h3>1-on-1 only</h3><p>By appointment, full attention, no groups. Every rep is coached.</p></div>
+        </div></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-zone" aria-hidden="true">
+    <div class="marquee a" id="mqA"></div>
+    <div class="marquee b" id="mqB"></div>
+  </div>
+
+  <!-- TRIAL steps -->
+  <section class="hscroll" id="trial" aria-label="What happens in your trial">
+    <div class="sticky">
+      <div class="wrap top">
+        <h2 class="display">What you get<br>for <em>₹999</em></h2>
+        <div class="price-tag">1 session<small>no lock-in, open for everyone</small></div>
+      </div>
+      <div class="track" id="track">
+        <div class="step"><div class="n">1</div><div><h3>Goal assessment</h3><p>We find out exactly what you want and what has stopped you before.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Body analysis</h3><p>Measurements and a movement screen, so we know your real starting point.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h3>Live workout</h3><p>A real coached session at your level. You'll feel the difference the same day.</p></div></div>
+        <div class="step"><div class="n">4</div><div><h3>Your roadmap</h3><p>You leave with a written plan: what to train, what to eat, what to fix. It's yours to keep.</p></div></div>
+        <div class="step final"><div class="n">₹999</div><div><h3>Even if you don't join, you keep the roadmap</h3><a href="#" class="btn open-modal" style="background:var(--deep);color:var(--gold);margin-top:14px"><span>Book my trial</span></a></div></div>
+      </div>
+      <div class="wrap"><div class="hbar"><i id="hbar"></i></div></div>
+    </div>
+  </section>
+
+  <!-- TIMELINE: cost of waiting -->
+  <section>
+    <div class="wrap">
+      <div class="calc reveal">
+        <div>
+          <h2 class="display">When could you<br>reach your goal?</h2>
+          <label for="kgs">How much weight do you want to lose?</label>
+          <div class="kg"><span id="kgOut">10</span> kg</div>
+          <input type="range" id="kgs" min="3" max="30" value="10" aria-describedby="calcNote">
+          <p class="fine" id="calcNote">Rough estimate at a healthy pace of about 0.75 kg a week. Your coach sets your real pace in the trial.</p>
+        </div>
+        <div class="dates">
+          <div class="date now" id="dNow"><small>If you start this week</small><b id="bNow">—</b></div>
+          <div class="date later" id="dLater"><small>If you wait one more month</small><b id="bLater">—</b></div>
+          <a href="#" class="btn xl open-modal"><span>Start this week</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section id="plans" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display wipe">Choose your<br>plan</h2>
+        <p class="reveal d1">Longer plans cost less per session. Not sure yet? Start with the ₹999 trial and decide after.</p>
+      </div>
+      <div class="toggle reveal" role="group" aria-label="Plan type">
+        <span class="knob" id="knob"></span>
+        <button type="button" aria-pressed="true" data-set="studio">Studio training</button>
+        <button type="button" aria-pressed="false" data-set="online">Online plans</button>
+      </div>
+
+      <div class="plans" id="studio">
+        <article class="plan tilt"><h3>Trial</h3><div class="amt">₹999 <small>/ session</small></div>
+          <div class="per">Try before you commit</div>
+          <ul><li>1 coached session</li><li>Free consultation</li><li>Goal assessment</li><li>Roadmap you keep</li></ul>
+          <a href="#" class="btn ghost open-modal"><span>Book trial</span></a></article>
+        <article class="plan star tilt"><span class="flag">Most popular</span><h3>6 months</h3><div class="amt">₹71,999 <small>/ 6 months</small></div>
+          <div class="per">₹1,000 per session, about ₹400 a day</div>
+          <div class="save">Complete the program, get a full refund. Plus you save ₹17,995 vs paying monthly.</div>
+          <ul><li>72 sessions</li><li>Advanced program design</li><li>Weekly diet revisions</li><li>Body composition tracking</li><li>Daily check-ins</li><li>Pause up to 1 month</li><li>Marathon prep and outdoor training</li><li>Free medical check-up</li></ul>
+          <a href="https://wa.me/919511576586?text=Hi%20ONE7%2C%20I%27m%20interested%20in%20the%206-month%20plan" class="btn" target="_blank" rel="noopener"><span>Choose 6 months</span></a></article>
+        <article class="plan tilt"><h3>3 months</h3><div class="amt">₹44,999 <small>/ 3 months</small></div>
+          <div class="per">₹1,250 per session</div>
+          <ul><li>36 sessions</li><li>Custom workout plan</li><li>Full diet plan</li><li>Progress tracking</li><li>Priority WhatsApp support</li></ul>
+          <a href="https://wa.me/919511576586?text=Hi%20ONE7%2C%20I%27m%20interested%20in%20the%203-month%20plan" class="btn ghost" target="_blank" rel="noopener"><span>Choose 3 months</span></a></article>
+        <article class="plan tilt"><h3>Monthly</h3><div class="amt">₹14,999 <small>/ month</small></div>
+          <div class="per">₹1,250 per session</div>
+          <ul><li>12 sessions</li><li>Custom workout plan</li><li>Full diet plan</li><li>Progress tracking</li><li>Priority WhatsApp support</li></ul>
+          <a href="https://wa.me/919511576586?text=Hi%20ONE7%2C%20I%27m%20interested%20in%20the%20monthly%20plan" class="btn ghost" target="_blank" rel="noopener"><span>Choose monthly</span></a></article>
+      </div>
+
+      <div class="plans" id="online" hidden>
+        <article class="plan star tilt"><span class="flag">Best value</span><h3>Workout + diet combo</h3><div class="amt">₹6,999<span class="strike">₹8,999</span></div>
+          <div class="per">You save ₹3,001 vs buying both</div>
+          <ul><li>Complete personal workout plan</li><li>Complete personal diet plan</li><li>Calorie and macro breakdown</li><li>Meal and training guidance</li><li>Priority WhatsApp support</li></ul>
+          <a href="https://wa.me/919511576586?text=Hi%20ONE7%2C%20I%27d%20like%20the%20workout%20%2B%20diet%20combo" class="btn" target="_blank" rel="noopener"><span>Get the combo</span></a></article>
+        <article class="plan tilt"><h3>Workout plan</h3><div class="amt">₹5,000 <small>/ one-time</small></div>
+          <ul><li>Personal workout program</li><li>Goal-based training split</li><li>Exercise guidance</li><li>Progress tracking format</li></ul>
+          <a href="https://wa.me/919511576586?text=Hi%20ONE7%2C%20I%27d%20like%20the%20online%20workout%20plan" class="btn ghost" target="_blank" rel="noopener"><span>Get workout plan</span></a></article>
+        <article class="plan tilt"><h3>Diet plan</h3><div class="amt">₹5,000 <small>/ one-time</small></div>
+          <ul><li>Personal diet plan</li><li>Calorie and macro breakdown</li><li>Meal timing guidance</li><li>Veg and non-veg options</li></ul>
+          <a href="https://wa.me/919511576586?text=Hi%20ONE7%2C%20I%27d%20like%20the%20online%20diet%20plan" class="btn ghost" target="_blank" rel="noopener"><span>Get diet plan</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE: risk reversal -->
+  <section style="padding-top:10px">
+    <div class="wrap">
+      <div class="guarantee reveal">
+        <svg class="shield" viewBox="0 0 120 140" aria-hidden="true"><path class="s" d="M60 4l52 18v42c0 36-24 60-52 72C32 124 8 100 8 64V22z"/><path class="c" d="M36 72l16 16 34-36"/></svg>
+        <div>
+          <h2 class="display">You have<br>nothing to lose</h2>
+          <ul>
+            <li><b>₹999 trial with no lock-in.</b> If it doesn't feel right, you walk away with your roadmap.</li>
+            <li><b>6-month plan: complete the program, get a full refund.</b> We only win if you show up, so we make showing up worth it.</li>
+            <li><b>Pause up to a month</b> on the 6-month plan if life gets busy.</li>
+          </ul>
+          <p class="fine">Ask about refund conditions in your consultation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="background:var(--surface);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="display wipe">In their<br>words</h2><p class="reveal d1"><a href="https://www.google.com/search?q=ONE7+Personal+Training+Studio+Jaipur+reviews" target="_blank" rel="noopener">Read all reviews on Google</a></p></div>
+      <div class="quotes" id="quotes" aria-live="polite">
+        <figure class="quote on"><div class="stars" aria-label="5 stars">★★★★★</div><p class="big">28 kg in 6 months</p>
+          <blockquote>I didn't just want to lose weight, I wanted to completely transform myself. ONE7 gave me a system that helped me lose 28 kg in 6 months and build a body I'm genuinely proud of.</blockquote>
+          <cite>Aditya Bhatnagar<span>Complete body transformation</span></cite></figure>
+        <figure class="quote"><div class="stars" aria-label="5 stars">★★★★★</div><p class="big">Sugar under control</p>
+          <blockquote>Controlling my sugar levels was my biggest challenge. ONE7's structured training and diet plan brought it under control and gave me a fit, strong body. I feel healthier and more confident than ever.</blockquote>
+          <cite>Tarun<span>Sugar control and fitness</span></cite></figure>
+        <figure class="quote"><div class="stars" aria-label="5 stars">★★★★★</div><p class="big">Post-pregnancy fat loss</p>
+          <blockquote>After my pregnancy I had gained so much fat that I almost didn't recognise myself. Within a few months at ONE7 I saw visible fat loss and got my confidence back.</blockquote>
+          <cite>Versha<span>Post-pregnancy fat loss</span></cite></figure>
+      </div>
+      <div class="dots" id="dots">
+        <button type="button" class="on" aria-label="Show review 1"><i></i></button>
+        <button type="button" aria-label="Show review 2"><i></i></button>
+        <button type="button" aria-label="Show review 3"><i></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- COACH: authority + liking -->
+  <section id="coach">
+    <div class="wrap coach">
+      <div class="monogram reveal">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ2" d="M100,100 m-94,0 a94,94 0 1,1 188,0 a94,94 0 1,1 -188,0"/></defs>
+          <text><textPath href="#circ2">FOUNDER • HEAD COACH • 10+ YEARS • FOUNDER • HEAD COACH • 10+ YEARS •</textPath></text></svg>
+        <span>S</span>
+      </div>
+      <div>
+        <h2 class="display wipe">You train<br>with Shubham</h2>
+        <div class="role reveal d1">Founder and head coach. Certified personal trainer, 10+ years.</div>
+        <p class="reveal d1">Not a junior trainer, not a group class. Shubham builds every program himself with a science-first approach: structured, progressive, and made around your life.</p>
+        <p class="reveal d2">"Every client gets a plan made for them, not a generic workout sheet. The goal is results that last, not a quick fix."</p>
+        <div class="tags reveal d2"><span>Weight loss</span><span>Body transformation</span><span>Sports fitness</span><span>Nutrition</span><span>Progressive training</span></div>
+        <a href="https://wa.me/919511576586?text=Hi%20Shubham%2C%20I%27d%20like%20a%20free%20consultation" class="btn reveal d3" target="_blank" rel="noopener"><span>Talk to Shubham for free</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTRA offers -->
+  <section style="padding-top:10px">
+    <div class="wrap duo">
+      <div class="run reveal">
+        <div class="lanes" aria-hidden="true"><div class="lane"></div><div class="lane"></div><div class="lane"></div></div>
+        <svg class="runner" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="38" cy="10" r="5"/><path d="M34 18l-8 16 10 6-4 16M26 34l-12 4M34 18l10 10 10-2M36 40l12 4"/></svg>
+        <h3>Runners<br>squad</h3>
+        <p>Train with a group preparing for marathons and outdoor challenges. Included in the 6-month plan.</p>
+        <a href="https://wa.me/919511576586?text=Hi%20ONE7%2C%20I%27d%20like%20to%20join%20the%20runners%20squad" class="btn" target="_blank" rel="noopener"><span>Join the squad</span></a>
+      </div>
+      <div class="wedcard reveal d1">
+        <svg viewBox="0 0 210 200" aria-hidden="true"><circle class="r1" cx="80" cy="100" r="50"/><circle class="r2" cx="130" cy="100" r="50"/></svg>
+        <h3>Wedding<br>coming up?</h3>
+        <p style="color:var(--muted)">Couples get special pricing to train together before the big day. Details shared in your consultation.</p>
+        <a href="https://wa.me/919511576586?text=Hi%20ONE7%2C%20please%20share%20the%20pre-wedding%20couple%20offer" class="btn" target="_blank" rel="noopener"><span>Ask about the couple offer</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ: objection handling -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="display wipe">Still<br>thinking?</h2><p class="reveal d1">The questions people ask before they book.</p></div>
+      <div class="faq reveal">
+        <details><summary>I'm a complete beginner. Can I do this?</summary><p>Yes. The trial is open for every fitness level. Your coach starts from where you are today, measured in the body analysis, not from where a gym poster says you should be.</p></details>
+        <details><summary>I don't have much time.</summary><p>Sessions are by appointment, planned around your schedule. Monthly plans are 12 sessions, about three a week, and the 6-month plan lets you pause for up to a month.</p></details>
+        <details><summary>Isn't it expensive?</summary><p>On the 6-month plan it works out to about ₹400 a day for 1-on-1 coaching, a diet plan, check-ins and a medical check-up, and you get a full refund if you complete the program. If you'd rather start small, the ₹999 trial or the ₹6,999 online combo are good first steps.</p></details>
+        <details><summary>What will I have to eat? I'm vegetarian.</summary><p>No crash diets. You get a full diet plan with calorie and macro guidance, with veg and non-veg options, built around food you can keep eating.</p></details>
+        <details><summary>Do I have to join after the trial?</summary><p>No. The trial has no lock-in. You pay ₹999 once, and you keep the roadmap whether you join or not.</p></details>
+        <details><summary>Where is the studio?</summary><p>B9/649 Chitrakoot, near SBI Bank, DCM Ajmer Road, Jaipur. <a href="https://www.google.com/maps/search/?api=1&query=B9%2F649+Chitrakoot+DCM+Ajmer+Road+Jaipur" target="_blank" rel="noopener">Open in Google Maps</a>.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="info reveal">
+        <div><h3>Schedule</h3><b>By appointment</b><p>Timing around your day</p></div>
+        <div><h3>Location</h3><b>Chitrakoot</b><p>DCM Ajmer Road, Jaipur</p></div>
+        <div><h3>Session type</h3><b>1-on-1 only</b><p>Full attention, no groups</p></div>
+        <div><h3>Trial</h3><b>₹999</b><p>One-time, no hidden charges</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINALE: two-choice close -->
+  <section class="finale" id="finale">
+    <div class="wrap">
+      <h2 class="fill-text" id="fillText">Six months<br>from now</h2>
+      <p class="lede">You'll either wish you had started today, or be glad you did. The first step costs ₹999.</p>
+      <div class="row">
+        <a href="#" class="btn xl pulse open-modal"><span>Book my ₹999 trial</span></a>
+        <a href="tel:+919511576586" class="btn xl ghost"><span>Call +91 95115 76586</span></a>
+      </div>
+      <p class="fine"><span class="seats"><span id="seatTxt">Only 8 trial seats left this month</span></span></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>ONE7 Personal Training Studio, B9/649 Chitrakoot, DCM Ajmer Road, Jaipur</span>
+    <a href="https://instagram.com/one7.fitt" target="_blank" rel="noopener">@one7.fitt on Instagram</a>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <div><b>₹999 trial</b><small>No lock-in. Keep your roadmap.</small></div>
+  <a href="#" class="btn open-modal"><span>Book now</span></a>
+</div>
+
+<a class="wa" id="wa" href="https://wa.me/919511576586" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>
+</a>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="scrim" data-close></div>
+  <div class="sheet">
+    <button class="x" type="button" data-close aria-label="Close">✕</button>
+    <div id="formView">
+      <span class="seats" id="seatTxt2">Limited seats this month</span>
+      <h2 class="display" id="mTitle" style="margin-top:10px">Claim your<br>₹999 trial</h2>
+      <p class="sub">Just your name and number. Our team will confirm your slot on WhatsApp.</p>
+      <ul class="perks"><li>Goal assessment and body analysis</li><li>Live 1-on-1 workout</li><li>Personal roadmap you keep</li><li>No lock-in</li></ul>
+      <div class="field" id="fName"><label for="name">Full name</label><input id="name" autocomplete="name"><div class="err" aria-live="polite"></div></div>
+      <div class="field" id="fPhone"><label for="phone">WhatsApp number</label><input id="phone" inputmode="numeric" autocomplete="tel" maxlength="10"><div class="err" aria-live="polite"></div></div>
+      <button type="button" class="btn xl" id="submit"><span>Book my trial</span></button>
+    </div>
+    <div id="doneView" class="done" hidden>
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="41"/><path d="M30 52l13 13 27-29"/></svg>
+      <h2 class="display" style="font-size:44px;margin-top:14px">Almost done</h2>
+      <p class="sub">WhatsApp is opening with your details. Press send and the team will confirm your slot.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ====== EDIT THIS: keep it true. Set to 0 to hide the seats line. ======
+  const SEATS_LEFT = 8;
+  const PHONE = '919511576586';
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
+  const wa = t => 'https://wa.me/'+PHONE+'?text='+encodeURIComponent(t);
+
+  if(SEATS_LEFT > 0){ $('#seatTxt').textContent = 'Only '+SEATS_LEFT+' trial seats left this month'; $('#seatTxt2').textContent = 'Only '+SEATS_LEFT+' seats left this month'; }
+  else { $('#seatTxt').parentElement.remove(); $('#seatTxt2').remove(); }
+
+  // marquee
+  const words = ['Weight loss','Body transformation','Strength training','Marathon prep','1-on-1 coaching','Diet planning','Pre-wedding shred'];
+  const fillM = (el, list) => { const h = list.map(w=>'<span>'+w+'</span>').join(''); el.innerHTML = h + h; };
+  fillM($('#mqA'), words); fillM($('#mqB'), words.slice().reverse());
+
+  // reveal
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.15});
+  $$('.reveal,.wipe').forEach(el => io.observe(el));
+
+  // flip cards (tap on touch)
+  $$('.flip').forEach(f => f.addEventListener('click', () => f.classList.toggle('on')));
+
+  // quiz
+  const steps = $$('.qstep'), ans = {}; let qi = 0;
+  const go = i => { steps.forEach((s,k)=>s.classList.toggle('on',k===i)); qi = i; $('#qbar').style.width = (i/3*100)+'%'; };
+  const goals = {loss:'weight loss', trans:'body transformation', sport:'sports and marathon fitness', wed:'getting in shape before the wedding', health:'better health and sugar control'};
+  const pastTxt = {gym:'Gym alone didn\'t stick last time because nobody was checking on you. Daily check-ins fix exactly that.', diet:'Generic diet plans fail because they aren\'t built for your body. Here every plan is.', none:'Starting with a coach from day one means no wasted months and no injuries from bad form.'};
+  const result = () => {
+    let plan = '6-month plan', why = '';
+    if(ans.goal==='wed'){ plan = 'Couple offer'; why = 'Train together before the big day with special couple pricing. '; }
+    else if(ans.time==='1'){ plan = 'Monthly plan'; why = 'A focused month with 12 coached sessions and a full diet plan gives you a real head start. Most lasting changes need longer, so we\'ll show you the next step in your trial. '; }
+    else if(ans.time==='3'){ plan = '3-month plan'; why = '36 coached sessions with a full diet plan is enough time to see and feel real change. '; }
+    else { why = 'For '+goals[ans.goal]+' that lasts, 6 months of coaching with daily check-ins is the strongest option, at ₹1,000 a session, and you get a full refund if you complete it. '; }
+    why += pastTxt[ans.past] + ' Start with the ₹999 trial to confirm the fit.';
+    $('#rPlan').textContent = plan; $('#rWhy').textContent = why;
+    $('#rCta').href = wa('Hi ONE7, I took the plan quiz.\nGoal: '+goals[ans.goal]+'\nTimeline: '+(ans.time==='1'?'1 month':ans.time==='3'?'2-3 months':'6 months')+'\nRecommended: '+plan+'\nI\'d like to book the ₹999 trial.');
+  };
+  steps.forEach((s,i) => s.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => {
+    s.querySelectorAll('.opt').forEach(x=>x.classList.remove('picked')); b.classList.add('picked');
+    ans[s.dataset.q] = b.dataset.v;
+    setTimeout(() => { if(i===2) result(); go(i+1); }, 350);
+  })));
+  $('#again').addEventListener('click', () => { $$('.opt').forEach(x=>x.classList.remove('picked')); go(0); });
+
+  // timeline calculator
+  const fmt = d => d.toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric'});
+  const calc = () => {
+    const kg = +$('#kgs').value, weeks = Math.ceil(kg/0.75); $('#kgOut').textContent = kg;
+    const now = new Date(); now.setDate(now.getDate() + weeks*7);
+    const later = new Date(); later.setMonth(later.getMonth()+1); later.setDate(later.getDate() + weeks*7);
+    $('#bNow').textContent = fmt(now); $('#bLater').textContent = fmt(later);
+    ['#dNow','#dLater'].forEach(id => { const el = $(id); el.classList.remove('bump'); el.offsetWidth; el.classList.add('bump'); });
+  };
+  $('#kgs').addEventListener('input', calc); calc();
+
+  // counters (none numeric left besides none) — plan toggle
+  const knob = $('#knob'), tBtns = $$('.toggle button');
+  const placeKnob = b => { knob.style.width = b.offsetWidth+'px'; knob.style.transform = 'translateX('+(b.offsetLeft-5)+'px)'; };
+  tBtns.forEach(b => b.addEventListener('click', () => {
+    tBtns.forEach(x => x.setAttribute('aria-pressed', x===b)); placeKnob(b);
+    ['studio','online'].forEach(id => { const g = document.getElementById(id), show = id===b.dataset.set; g.hidden = !show;
+      if(show) g.querySelectorAll('.plan').forEach(c => { c.style.animation='none'; c.offsetHeight; c.style.animation=''; }); });
+  }));
+  const placeActive = () => placeKnob($('.toggle [aria-pressed="true"]'));
+  addEventListener('resize', placeActive); document.fonts && document.fonts.ready.then(placeActive); placeActive();
+
+  // pointer niceties
+  if(matchMedia('(pointer:fine)').matches && !reduce){
+    $$('.tilt').forEach(c => {
+      c.addEventListener('mousemove', e => { const r = c.getBoundingClientRect(), x = (e.clientX-r.left)/r.width-.5, y = (e.clientY-r.top)/r.height-.5;
+        c.style.transform = 'rotateY('+(x*8)+'deg) rotateX('+(-y*8)+'deg) translateY(-6px)'; });
+      c.addEventListener('mouseleave', () => c.style.transform = '');
+    });
+    $$('.btn').forEach(b => {
+      b.addEventListener('mousemove', e => { const r = b.getBoundingClientRect(); b.style.transform = 'translate('+((e.clientX-r.left-r.width/2)*.2)+'px,'+((e.clientY-r.top-r.height/2)*.3)+'px)'; });
+      b.addEventListener('mouseleave', () => b.style.transform = '');
+    });
+    const cur = $('#cursor'); let cx=-100, cy=-100, tx=-100, ty=-100;
+    addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+    $$('a,button,input').forEach(el => { el.addEventListener('mouseenter',()=>cur.classList.add('big')); el.addEventListener('mouseleave',()=>cur.classList.remove('big')); });
+    (function loop(){ cx += (tx-cx)*.18; cy += (ty-cy)*.18; cur.style.transform = 'translate('+(cx-18)+'px,'+(cy-18)+'px)'; requestAnimationFrame(loop); })();
+  }
+
+  // testimonials
+  const qs = $$('.quote'), ds = $$('#dots button'); let ti = 0, tTimer;
+  const showQ = i => { qs.forEach((q,k) => { q.classList.remove('on','out'); if(k===ti && k!==i) q.classList.add('out'); }); qs[i].classList.add('on');
+    ds.forEach((d,k) => { d.classList.remove('on'); if(k===i){ d.offsetWidth; d.classList.add('on'); } }); ti = i; restartQ(); };
+  const restartQ = () => { clearTimeout(tTimer); if(!reduce) tTimer = setTimeout(() => showQ((ti+1)%qs.length), 6000); };
+  ds.forEach((d,i) => d.addEventListener('click', () => showQ(i))); restartQ();
+
+  // scroll-driven
+  const prog = $('#progress'), hdr = $('#hdr'), hs = $('.hscroll'), track = $('#track'), hbar = $('#hbar'),
+        hsteps = track.querySelectorAll('.step'), fillT = $('#fillText'), waBtn = $('#wa'), mbar = $('#mbar');
+  let ticking = false;
+  const onScroll = () => {
+    const y = scrollY, max = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = 'scaleX('+(max>0 ? y/max : 0)+')';
+    hdr.classList.toggle('scrolled', y > 20);
+    waBtn.classList.toggle('show', y > innerHeight*.8);
+    mbar.classList.toggle('show', y > innerHeight*.9);
+    if(!reduce){
+      const r = hs.getBoundingClientRect(), total = hs.offsetHeight - innerHeight;
+      const p = Math.min(1, Math.max(0, -r.top / total)), dist = track.scrollWidth - innerWidth + 40;
+      track.style.transform = 'translateX('+(-p*Math.max(0,dist))+'px)';
+      hbar.style.transform = 'scaleX('+p+')';
+      hsteps.forEach((s,i) => s.style.setProperty('--p', Math.min(1, Math.max(0, p*hsteps.length - i))));
+    }
+    const fr = fillT.getBoundingClientRect(), fp = Math.min(1, Math.max(0, (innerHeight - fr.top) / (innerHeight*.7)));
+    fillT.style.setProperty('--f', (fp*100)+'%');
+    ticking = false;
+  };
+  addEventListener('scroll', () => { if(!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
+  addEventListener('resize', onScroll); onScroll();
+
+  // modal
+  const modal = $('#modal'), nameI = $('#name'), phoneI = $('#phone'); let lastFocus = null, shown = false;
+  const open = e => { if(e) e.preventDefault(); shown = true; lastFocus = document.activeElement; modal.classList.add('open');
+    $('#formView').hidden = false; $('#doneView').hidden = true; setTimeout(() => nameI.focus(), 300); };
+  const close = () => { modal.classList.remove('open'); lastFocus && lastFocus.focus(); };
+  $$('.open-modal').forEach(b => b.addEventListener('click', open));
+  modal.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', close));
+  modal.addEventListener('keydown', e => { if(e.key === 'Escape') close(); });
+  const setErr = (f, msg) => { const w = document.getElementById(f); w.classList.remove('bad'); w.querySelector('.err').textContent = msg || ''; if(msg){ w.offsetWidth; w.classList.add('bad'); } };
+  $('#submit').addEventListener('click', () => {
+    const n = nameI.value.trim(), ph = phoneI.value.trim(); let ok = true;
+    if(!/^[A-Za-z\u0900-\u097F ]{2,}$/.test(n)){ setErr('fName','Please enter your name using letters only.'); ok = false; } else setErr('fName');
+    if(!/^[6-9]\d{9}$/.test(ph)){ setErr('fPhone','Please enter a valid 10-digit mobile number.'); ok = false; } else setErr('fPhone');
+    if(!ok) return;
+    $('#formView').hidden = true; $('#doneView').hidden = false;
+    const extra = ans.goal ? '\nGoal: '+goals[ans.goal] : '';
+    setTimeout(() => window.open(wa('Hi ONE7, I want to book the ₹999 trial session.\nName: '+n+'\nNumber: '+ph+extra), '_blank', 'noopener'), 900);
+  });
+  phoneI.addEventListener('input', () => { phoneI.value = phoneI.value.replace(/\D/g,''); });
+
+  // one gentle prompt per visit: on leaving intent (desktop) or after a long read (mobile)
+  const once = () => { try { if(sessionStorage.getItem('one7-pop')) return false; sessionStorage.setItem('one7-pop','1'); } catch(e){} return true; };
+  document.addEventListener('mouseout', e => { if(!e.relatedTarget && e.clientY < 10 && !shown && once()) open(); });
+  setTimeout(() => { if(!shown && matchMedia('(pointer:coarse)').matches && once()) open(); }, 45000);
+})();
+</script>
+</body>
+</html>
